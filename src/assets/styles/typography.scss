@@ -1,0 +1,35 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@for $i from 1 to 50 {
+  .width-#{$i * 5} {
+    width: #{$i * 5}px;
+  }
+  .p-#{$i * 5} {
+    padding: #{$i * 5}px;
+  }
+  .m-#{$i * 5} {
+    margin: #{$i * 5}px;
+  }
+
+  .mh-#{$i * 5} {
+    margin: 0px #{$i * 5}px;
+  }
+
+  .mv-#{$i * 5} {
+    margin: #{$i * 5}px 0px;
+  }
+
+  .ml-#{$i * 5} {
+    margin-left: #{$i * 5}px;
+  }
+
+  .mr-#{$i * 5} {
+    margin-right: #{$i * 5}px;
+  }
+
+  .mb-#{$i * 5} {
+    margin-bottom: #{$i * 5}px;
+  }
+}

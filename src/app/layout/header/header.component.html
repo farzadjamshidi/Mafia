@@ -1,0 +1,8 @@
+<div class="m-header">
+  <mat-icon class="a-home-icon cursor-pointer" [routerLink]="['/home']">home</mat-icon>
+  <span class="a-header-text">{{"HEADER.TITLE" | translate}}</span>
+  <mat-button-toggle-group class="m-select-language" [value]="defaultLanguage" (change)="changeLanguage($event)">
+    <mat-button-toggle value="en">EN</mat-button-toggle>
+    <mat-button-toggle value="fa">FA</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

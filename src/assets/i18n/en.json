@@ -1,0 +1,10 @@
+{
+  "HEADER": {
+    "TITLE": "Mafia"
+  },
+  "HOME": {
+    "TYPE_SELECTED": "Mafia Selected.",
+    "READY_JOURNEY": "Are you ready for a game?",
+    "START": "Start!"
+  }
+}

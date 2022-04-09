@@ -1,0 +1,8 @@
+.o-app-container {
+  position: relative;
+  height: 100%;
+  @media only screen and (min-width: 768px) {
+    width: 40vw;
+    margin: auto;
+  }
+}
