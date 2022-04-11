@@ -7,20 +7,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { TranslateModule } from '@ngx-translate/core';
 import { LocalStorageV0PlayerRepo } from 'src/app/core/repository/localStorage/v0/player.repo';
-import { AssignRolesRoutingModule } from './assign-roles-routing.module';
-import { AssignRolesComponent } from './assign-roles.component';
+import { NightPhaseRoutingModule } from './night-phase-routing.module';
+import { NightPhaseComponent } from './night-phase.component';
 
 const BASE_MODULES = [
-  AssignRolesRoutingModule,
+  NightPhaseRoutingModule,
   TranslateModule,
   ReactiveFormsModule,
   CommonModule
 ];
-const COMPONENTS = [AssignRolesComponent];
+const COMPONENTS = [NightPhaseComponent];
 const MATERIAL_MODULES = [
-  MatButtonModule,
-  MatFormFieldModule,
   MatSelectModule,
+  MatFormFieldModule,
+  MatButtonModule,
   MatCardModule
 ];
 
@@ -40,4 +40,4 @@ const MATERIAL_MODULES = [
     { provide: 'IPlayerRepo', useClass: LocalStorageV0PlayerRepo }
   ]
 })
-export class AssignRolesModule { }
+export class NightPhaseModule { }

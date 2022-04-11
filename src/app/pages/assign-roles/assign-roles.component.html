@@ -1,11 +1,38 @@
 <mat-card class="m-home-card">
 
   <div class="m-home-card-content">
-
+    <div *ngFor="let player of players; let playerIndex=index">
+      <div>
+        <span>
+          {{playerIndex+1}}- {{player.name}}
+        </span>
+      </div>
+      <mat-form-field class="" appearance="outline" matRipple>
+        <mat-select [value]="player.role" (selectionChange)="changeRoleComboBox($event, player)">
+          <mat-option *ngFor="let role of roles" [value]="role.value">
+            {{role.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="" appearance="outline" matRipple>
+        <mat-select [value]="player.roleGroup" (selectionChange)="changeRoleGroupComboBox($event, player)">
+          <mat-option *ngFor="let roleGroup of roleGroups" [value]="roleGroup.value">
+            {{roleGroup.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
 
   <div class="m-home-card-footer">
-
+    <div>
+      <button mat-raised-button color="primary" (click)="goToPrevious()">
+        Previous Step
+      </button>
+      <button mat-raised-button color="primary" (click)="saveAndGoToNext()">
+        Next Step
+      </button>
+    </div>
   </div>
 
 </mat-card>
