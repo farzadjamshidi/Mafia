@@ -1,7 +1,7 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Player } from 'src/app/core/models/player.model';
+import { Player, PlayerStatusEnum } from 'src/app/core/models/player.model';
 import { PostPlayersRequest } from 'src/app/core/models/post-players.model';
 import { IPlayerRepo } from 'src/app/core/repository/interfaces/player.interface';
 
@@ -32,6 +32,8 @@ export class PlayersComponent implements OnInit, OnDestroy
     const newPlayer = new Player();
     newPlayer.id = Math.random().toString();
     newPlayer.name = playerName;
+    newPlayer.revealed = false;
+    newPlayer.status = PlayerStatusEnum.Alive;
     this.players.push(newPlayer);
   }
 
