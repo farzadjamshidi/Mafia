@@ -21,7 +21,7 @@ export class LocalStorageV0PlayerRepo implements IPlayerRepo
       {
         JSON.parse(localStorage.getItem('players') || '[]');
         observer.next(
-          JSON.parse(localStorage.getItem('players') || '[]') as GetPlayersResponse
+          { players: JSON.parse(localStorage.getItem('players') || '[]') } as GetPlayersResponse
         );
       } catch (error)
       {
