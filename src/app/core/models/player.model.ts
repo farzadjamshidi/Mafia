@@ -4,14 +4,17 @@ export class Player
   name!: string;
   role!: PlayerRoleEnum;
   roleGroup!: PlayerRoleGroupEnum;
+  status!: PlayerStatusEnum;
+  revealed!: boolean;
 }
 
-enum PlayerRoleEnum
+export enum PlayerRoleEnum
 {
-  Godfather,
+  Godfather = 1,
   DrLecter,
   Mafia,
   Joker,
+  Detective,
   Sheriff,
   Citizen,
   Sniper,
@@ -21,8 +24,14 @@ enum PlayerRoleEnum
   Psychologist
 }
 
-enum PlayerRoleGroupEnum
+export enum PlayerRoleGroupEnum
 {
-  Mafia,
+  Mafia = 1,
   Citizen
+}
+
+export enum PlayerStatusEnum
+{
+  Alive = 1,
+  Dead
 }
