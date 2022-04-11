@@ -1,0 +1,25 @@
+<mat-card class="m-home-card">
+
+  <div class="m-home-card-content">
+    <div *ngFor="let player of players; let playerIndex=index">
+      {{playerIndex+1}}- {{player.name}}
+    </div>
+  </div>
+
+  <div class="m-home-card-footer">
+    <div>
+      <mat-form-field appearance="outline">
+        <input matInput #input placeholder="Player Name">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addPlayer(input.value); input.value=''; input.focus()">
+        Add Player
+      </button>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="saveAndGoToNext()">
+        Next Step
+      </button>
+    </div>
+  </div>
+
+</mat-card>

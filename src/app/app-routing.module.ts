@@ -7,6 +7,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
   {
+    path: 'players',
+    loadChildren: () => import('./pages/players/players.module').then(m => m.PlayersModule)
+  },
+  {
+    path: 'assign-roles',
+    loadChildren: () => import('./pages/assign-roles/assign-roles.module').then(m => m.AssignRolesModule)
+  },
+  {
     path: '**',
     redirectTo: '/home',
   },
