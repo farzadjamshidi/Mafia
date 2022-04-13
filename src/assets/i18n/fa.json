@@ -1,6 +1,18 @@
 {
+  "GENERAL": {
+    "NEXT_STEP": "مرحله بعد",
+    "PREV_STEP": "مرحله قبل",
+    "YES": "بله",
+    "NO": "خیر"
+  },
   "HEADER": {
     "TITLE": "مافیا"
+  },
+  "PLAYERS": {
+    "ADD_PLAYER": "اضافه کردن بازیکن"
+  },
+  "ASSIGN_ROLES": {
+    "EQUAL_ROLES_ASSIGN_TO_PLAYERS": "مجموع تعداد نقش ها با تعداد بازیکنان باید برابر باشد."
   },
   "HOME": {
     "TYPE_SELECTED": "بازی مافیا انتخاب شده است.",

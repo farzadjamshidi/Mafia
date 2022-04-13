@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,7 +13,7 @@ import { AssignRolesComponent } from './assign-roles.component';
 const BASE_MODULES = [
   AssignRolesRoutingModule,
   TranslateModule,
-  ReactiveFormsModule,
+  FormsModule,
   CommonModule
 ];
 const COMPONENTS = [AssignRolesComponent];

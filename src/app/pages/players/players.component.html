@@ -12,12 +12,12 @@
         <input matInput #input placeholder="Player Name">
       </mat-form-field>
       <button mat-raised-button color="primary" (click)="addPlayer(input.value); input.value=''; input.focus()">
-        Add Player
+        {{"PLAYERS.ADD_PLAYER" | translate}}
       </button>
     </div>
     <div>
       <button mat-raised-button color="primary" (click)="saveAndGoToNext()">
-        Next Step
+        {{"GENERAL.NEXT_STEP" | translate}}
       </button>
     </div>
   </div>

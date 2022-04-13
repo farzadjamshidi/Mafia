@@ -1,12 +1,10 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { MatSelectChange } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { GetPlayersRequest } from 'src/app/core/models/get-players.model';
-import { Player, PlayerRoleEnum, PlayerRoleGroupEnum } from 'src/app/core/models/player.model';
+import { Player, PlayerRole, PlayerRoleByCount, roles } from 'src/app/core/models/player.model';
 import { PostPlayersRequest } from 'src/app/core/models/post-players.model';
 import { IPlayerRepo } from 'src/app/core/repository/interfaces/player.interface';
-
 @Component({
   selector: 'app-assign-roles',
   templateUrl: './assign-roles.component.html',
@@ -16,8 +14,10 @@ export class AssignRolesComponent implements OnInit, OnDestroy
 {
   subscriptions: Subscription = new Subscription();
   players: Player[] = [];
-  roles: Role[] = [];
-  roleGroups: RoleGroup[] = [];
+  rolesByCount: PlayerRoleByCount[] = [];
+  maxPlayerNumber: number = 20;
+  rolesCount: number[] = [];
+  isDeactiveNextStep: boolean = true;
 
   constructor(
     private router: Router,
@@ -28,8 +28,15 @@ export class AssignRolesComponent implements OnInit, OnDestroy
 
   ngOnInit(): void
   {
-    this.roles = this.transformNumberedEnumToKeyValues(PlayerRoleEnum);
-    this.roleGroups = this.transformNumberedEnumToKeyValues(PlayerRoleGroupEnum);
+    this.rolesCount = Array.from(Array(this.maxPlayerNumber + 1).keys());
+
+    this.rolesByCount = roles.map(role =>
+    {
+      return {
+        role: role,
+        count: 0
+      };
+    });
 
     const request: GetPlayersRequest =
     {
@@ -40,7 +47,6 @@ export class AssignRolesComponent implements OnInit, OnDestroy
         next: (res) =>
         {
           this.players = res.players;
-          console.log(this.players);
         },
         error: (err) =>
         {
@@ -50,48 +56,52 @@ export class AssignRolesComponent implements OnInit, OnDestroy
 
   }
 
-  transformNumberedEnumToKeyValues(numberedEnum: { [key: string | number]: string | number; }): Role[]
+  transformNumberedEnumToKeyValues(numberedEnum: { [key: string | number]: string | number; }): { name: string; value: number; }[]
   {
-    const roles: Role[] = [];
+    const keyValueEnum: { name: string; value: number; }[] = [];
 
     for (let item in numberedEnum)
     {
       if (isNaN(Number(item)))
       {
-        roles.push({
+        keyValueEnum.push({
           name: item,
           value: Number(numberedEnum[item])
         });
       }
     }
 
-    return roles;
+    return keyValueEnum;
   }
 
-  changeRoleComboBox(event: MatSelectChange, player: Player): void
+  changeRoleComboBox(): void
   {
-    if (event.value)
-    {
-      this.players.find(p => p.id === player.id)!.role = event.value as PlayerRoleEnum;
-    }
-    else
-    {
-    }
+    this.checkIsDeactiveNextStep();
   }
 
-  changeRoleGroupComboBox(event: MatSelectChange, player: Player): void
+  checkIsDeactiveNextStep(): void
   {
-    if (event.value)
-    {
-      this.players.find(p => p.id === player.id)!.roleGroup = event.value as PlayerRoleGroupEnum;
-    }
-    else
-    {
-    }
+    this.isDeactiveNextStep = this.players.length !== this.rolesByCount.reduce((acc, curr) => { return acc + curr.count; }, 0);
   }
 
   saveAndGoToNext(): void
   {
+
+    const finalRoles: PlayerRole[] = [];
+
+    this.rolesByCount.forEach(roleByCount =>
+    {
+      for (let i = 0; i < roleByCount.count; i++)
+      {
+        finalRoles.push(roleByCount.role);
+      }
+    });
+
+    this.shuffle(finalRoles).forEach((role, index) =>
+    {
+      this.players[index].role = role;
+    });
+
     const request: PostPlayersRequest = {
       players: this.players
     };
@@ -109,6 +119,27 @@ export class AssignRolesComponent implements OnInit, OnDestroy
       ));
   }
 
+  shuffle(array: any[])
+  {
+    let currentIndex = array.length, randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0)
+    {
+
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+  }
+
+
   goToPrevious(): void
   {
     this.router.navigate(['/players']);
@@ -119,16 +150,4 @@ export class AssignRolesComponent implements OnInit, OnDestroy
     this.subscriptions.unsubscribe();
   }
 
-}
-
-class Role
-{
-  name!: string;
-  value!: PlayerRoleEnum;
-}
-
-class RoleGroup
-{
-  name!: string;
-  value!: PlayerRoleEnum;
 }

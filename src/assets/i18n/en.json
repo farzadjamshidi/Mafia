@@ -1,6 +1,18 @@
 {
+  "GENERAL": {
+    "NEXT_STEP": "Next Step",
+    "PREV_STEP": "Previous Step",
+    "YES": "Yes",
+    "NO": "No"
+  },
   "HEADER": {
     "TITLE": "Mafia"
+  },
+  "PLAYERS": {
+    "ADD_PLAYER": "Add Player"
+  },
+  "ASSIGN_ROLES": {
+    "EQUAL_ROLES_ASSIGN_TO_PLAYERS": "Sum of number of roles should be equal to number of players"
   },
   "HOME": {
     "TYPE_SELECTED": "Mafia Selected.",
