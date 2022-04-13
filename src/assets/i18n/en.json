@@ -5,6 +5,21 @@
     "YES": "Yes",
     "NO": "No"
   },
+  "ROLES": {
+    "GODFATHER": "Godfather",
+    "DRLECTER": "Drlecter",
+    "MAFIA": "Mafia",
+    "JOKER": "Joker",
+    "DETECTIVE": "Detective",
+    "SHERIFF": "Sheriff",
+    "CITIZEN": "Citizen",
+    "SNIPER": "Sniper",
+    "DOCTOR": "Doctor",
+    "BODYGUARD": "Bodyguard",
+    "BODYGUARDWITHOUTGUARD": "Bodyguard without guard",
+    "ANGEL": "Angel",
+    "PSYCHOLOGIST": "Psychologist"
+  },
   "HEADER": {
     "TITLE": "Mafia"
   },

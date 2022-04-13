@@ -6,7 +6,7 @@
 
   <div class="m-home-card-content">
     <div *ngFor="let roleByCount of rolesByCount">
-      {{roleByCount.role.name.toUpperCase() | translate}}
+      {{"ROLES."+roleByCount.role.name.toUpperCase() | translate}}
       <mat-form-field class="" appearance="outline" matRipple>
         <mat-select [(ngModel)]="roleByCount.count" (selectionChange)="changeRoleComboBox()">
           <mat-option *ngFor="let number of rolesCount" [value]="number">

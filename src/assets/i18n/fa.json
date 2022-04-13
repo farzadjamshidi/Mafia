@@ -5,6 +5,21 @@
     "YES": "بله",
     "NO": "خیر"
   },
+  "ROLES": {
+    "GODFATHER": "گادفادر",
+    "DRLECTER": "دکتر لکتر",
+    "MAFIA": "مافیا",
+    "JOKER": "جوکر",
+    "DETECTIVE": "کاراگاه",
+    "SHERIFF": "شهردار",
+    "CITIZEN": "شهروند",
+    "SNIPER": "تک تیرانداز",
+    "DOCTOR": "دکتر شهروند",
+    "BODYGUARD": "زره پوش",
+    "BODYGUARDWITHOUTGUARD": "زره پوش بدون زره",
+    "ANGEL": "فرشته",
+    "PSYCHOLOGIST": "روانشناس"
+  },
   "HEADER": {
     "TITLE": "مافیا"
   },
