@@ -110,7 +110,7 @@ export class AssignRolesComponent implements OnInit, OnDestroy
       this.playerRepo.saveAll(request).subscribe({
         next: () =>
         {
-          this.router.navigate(['/night-phase']);
+          this.router.navigate(['/show-roles']);
         },
         error: () =>
         {

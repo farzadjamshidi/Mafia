@@ -120,12 +120,11 @@ export class NightPhaseComponent implements OnInit, OnDestroy
 
   goToPrevious(): void
   {
-    this.router.navigate(['/assign-roles']);
+    this.router.navigate(['/show-roles']);
   }
 
   saveAndGoToNext(): void
   {
-    debugger;
     const request: PostPlayersRequest = {
       players: this.players
     };
