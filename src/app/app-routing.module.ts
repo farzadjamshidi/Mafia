@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/assign-roles/assign-roles.module').then(m => m.AssignRolesModule)
   },
   {
+    path: 'show-roles',
+    loadChildren: () => import('./pages/show-roles/show-roles.module').then(m => m.ShowRolesModule)
+  },
+  {
     path: 'night-phase',
     loadChildren: () => import('./pages/night-phase/night-phase.module').then(m => m.NightPhaseModule)
   },

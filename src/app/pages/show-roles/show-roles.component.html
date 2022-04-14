@@ -1,0 +1,48 @@
+<mat-card class="m-home-card">
+
+  <div class="m-home-card-content">
+    <span class="a-h3-text">{{"SHOW_ROLES.TITLE" | translate}}</span>
+    <div *ngIf="!isDeactiveNextStep">
+      <div>
+        <span>
+          {{"GENERAL.STAGE_COMPLETE" | translate}}
+        </span>
+      </div>
+    </div>
+
+    <div *ngIf="isDeactiveNextStep">
+      <span>
+        {{"GENERAL.SELECT_NAME" | translate}}:
+      </span>
+      <mat-form-field class="" appearance="outline" matRipple>
+        <mat-select [(ngModel)]="selectedPlayer" (selectionChange)="changePlayerComboBox($event)">
+          <mat-option *ngFor="let player of players" [value]="player">
+            {{player.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="m-each-action p-5 m-5" *ngIf="selectedPlayer.id">
+        <span>{{"SHOW_ROLES.YOUR_ROLE" | translate}}: </span>
+        <span>{{"ROLES."+selectedPlayer.role.name.toUpperCase() | translate}}</span>
+        <button mat-raised-button color="primary" (click)="actionFinished()">
+          <span>
+            {{"GENERAL.MY_ACTION_FINISHED" | translate}}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-home-card-footer">
+    <div>
+      <button mat-raised-button color="primary" (click)="goToPrevious()">
+        {{"GENERAL.PREV_STEP" | translate}}
+      </button>
+      <button mat-raised-button color="primary" (click)="saveAndGoToNext()" [disabled]="isDeactiveNextStep">
+        {{"GENERAL.NEXT_STEP" | translate}}
+      </button>
+    </div>
+  </div>
+
+</mat-card>
