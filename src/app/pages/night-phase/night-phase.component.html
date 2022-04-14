@@ -1,13 +1,88 @@
 <mat-card class="m-home-card">
 
   <div class="m-home-card-content">
-    night phase
+    <div *ngIf="!isDeactiveNextStep">
+      <div>
+        <span>
+          This stage completed. All players open your their eyes.
+        </span>
+      </div>
+      <hr>
+      <div>
+        <span>
+          {{nightReport}}
+        </span>
+      </div>
+      <hr>
+      <div>
+        <span>
+          {{bodyguardInquiry}}
+        </span>
+      </div>
+
+
+      <button mat-raised-button color="primary" (click)="showNightReport()" [disabled]="isDeactiveNextStep">
+        Night Report
+      </button>
+    </div>
+
+    <div *ngIf="isDeactiveNextStep">
+      <span>
+        Please select your name:
+      </span>
+      <mat-form-field class="" appearance="outline" matRipple>
+        <mat-select [(ngModel)]="selectedPlayer" (selectionChange)="changePlayerComboBox($event)">
+          <mat-option *ngFor="let player of aliveAndNotSelectedPlayers" [value]="player">
+            {{player.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="m-each-action p-5 m-5" *ngIf="selectedPlayer.id">
+        <div class="m-each-action-title">
+          <span class="a-h3-text"><bdi>{{happenings[selectedPlayer.role.value].title | translate}}</bdi></span>
+        </div>
+        <div class="m-each-action-content">
+          <mat-form-field class="" appearance="outline" matRipple
+          *ngIf="happenings[selectedPlayer.role.value].type === nightHappeningTypeEnum.choosePlayer">
+            <mat-select [(ngModel)]="happenings[selectedPlayer.role.value].playerId"
+              (selectionChange)="changeActionPlayerComboBox($event)">
+              <mat-option [value]="">No Body</mat-option>
+              <mat-option *ngFor="let player of alivePlayers" [value]="player.id">
+                {{player.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-radio-group [(ngModel)]="happenings[selectedPlayer.role.value].choose"
+            *ngIf="happenings[selectedPlayer.role.value].type === nightHappeningTypeEnum.yesOrNo">
+            <mat-radio-button [value]="true">
+              {{"GENERAL.YES" | translate}}
+            </mat-radio-button>
+            <mat-radio-button [value]="false">
+              {{"GENERAL.NO" | translate}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <div class="m-20">
+            <span>
+              {{actionReport}}
+            </span>
+          </div>
+        </div>
+        <button mat-raised-button color="primary" (click)="actionFinished()">
+          My action finished
+        </button>
+      </div>
+    </div>
   </div>
 
   <div class="m-home-card-footer">
     <div>
-      <button mat-raised-button color="primary" (click)="saveAndGoToNext()">
-        Next Step
+      <button mat-raised-button color="primary" (click)="goToPrevious()">
+        {{"GENERAL.PREV_STEP" | translate}}
+      </button>
+      <button mat-raised-button color="primary" (click)="saveAndGoToNext()" [disabled]="isDeactiveNextStep">
+        {{"GENERAL.NEXT_STEP" | translate}}
       </button>
     </div>
   </div>

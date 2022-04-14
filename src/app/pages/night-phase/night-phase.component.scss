@@ -1,5 +1,6 @@
 .m-home-card {
   height: calc(100vh - 81px);
+  overflow-y: auto;
   margin: 16px;
 }
 .m-home-card-content {
@@ -11,4 +12,12 @@
 }
 .a-text-secondary {
   font-size: 16px;
+}
+.a-h3-text {
+  font-size: 20px;
+  font-weight: 700;
+}
+.m-each-action{
+  border: 2px solid #f777e1;
+  border-radius: 5px;
 }

@@ -29,6 +29,14 @@
   "ASSIGN_ROLES": {
     "EQUAL_ROLES_ASSIGN_TO_PLAYERS": "Sum of number of roles should be equal to number of players"
   },
+  "NIGHT_PHASE": {
+    "SHOOTBYMAFIA": "Godfather shoot to a citizen.",
+    "SAVEDBYMAFIA": "Mafia save one of their teammate.",
+    "SAVEDBYDOCTOR": "Doctor open his/her eyes and save a person.",
+    "ASKEDBYDETECTIVE": "Detective inquiry one person.",
+    "KILLEDBYSNIPER": "Does sniper wants to shoot? if yes, shoot to a person.",
+    "BODYGUARDCHOOSE": "Does bodyguard wants to inquiry?"
+  },
   "HOME": {
     "TYPE_SELECTED": "Mafia Selected.",
     "READY_JOURNEY": "Are you ready for a game?",

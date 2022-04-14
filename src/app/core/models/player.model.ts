@@ -2,7 +2,7 @@ export class Player
 {
   id!: string;
   name!: string;
-  role!: PlayerRole;
+  role!: PlayerRole | Bodyguard;
   status!: PlayerStatusEnum;
   revealed!: boolean;
 }
@@ -102,6 +102,7 @@ export class Bodyguard extends PlayerRole
   override name = 'Bodyguard';
   override value = PlayerRoleEnum.Bodyguard;
   override roleGroup = PlayerRoleGroupEnum.Citizen;
+  lives: number = 2;
 }
 export class BodyguardWithoutGuard extends PlayerRole
 {

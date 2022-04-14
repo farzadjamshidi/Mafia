@@ -29,6 +29,14 @@
   "ASSIGN_ROLES": {
     "EQUAL_ROLES_ASSIGN_TO_PLAYERS": "مجموع تعداد نقش ها با تعداد بازیکنان باید برابر باشد."
   },
+  "NIGHT_PHASE": {
+    "SHOOTBYMAFIA": "پدر خوانده به یه شهروند شلیک کند.",
+    "SAVEDBYMAFIA": "دکتر لکتر یکی از هم تیمی هاش رو سیو کنه.",
+    "SAVEDBYDOCTOR": "دکتر یک نفر رو سیو کنه.",
+    "ASKEDBYDETECTIVE": "کاراگاه استعلام یه نفر رو بگیره.",
+    "KILLEDBYSNIPER": "آیا تک تیرانداز میخواد شکلیک کنه؟ اگه آره، به یه نفر شلیک کنه.",
+    "BODYGUARDCHOOSE": "زرهپوش میخواد استعلام بگیره؟"
+  },
   "HOME": {
     "TYPE_SELECTED": "بازی مافیا انتخاب شده است.",
     "READY_JOURNEY": "آماده شروع بازی هستید؟",
