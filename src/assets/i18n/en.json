@@ -1,5 +1,8 @@
 {
   "GENERAL": {
+    "STAGE_COMPLETE": "This stage completed. All players open your their eyes.",
+    "SELECT_NAME": "Please select your name",
+    "MY_ACTION_FINISHED": "My action finished",
     "NEXT_STEP": "Next Step",
     "PREV_STEP": "Previous Step",
     "YES": "Yes",
@@ -24,10 +27,15 @@
     "TITLE": "Mafia"
   },
   "PLAYERS": {
+    "PLAYER_NAME": "Player Name",
     "ADD_PLAYER": "Add Player"
   },
   "ASSIGN_ROLES": {
     "EQUAL_ROLES_ASSIGN_TO_PLAYERS": "Sum of number of roles should be equal to number of players"
+  },
+  "SHOW_ROLES": {
+    "TITLE": "Show Roles",
+    "YOUR_ROLE": "Your role is"
   },
   "NIGHT_PHASE": {
     "SHOOTBYMAFIA": "Godfather shoot to a citizen.",

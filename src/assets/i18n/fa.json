@@ -1,5 +1,8 @@
 {
   "GENERAL": {
+    "STAGE_COMPLETE": "این مرحله به پایان رسید. همه بازیکنان چشم هاشون رو باز کنن.",
+    "SELECT_NAME": "لطفا نام خود را انتخاب کنید",
+    "MY_ACTION_FINISHED": "اکشن من انجام شد",
     "NEXT_STEP": "مرحله بعد",
     "PREV_STEP": "مرحله قبل",
     "YES": "بله",
@@ -24,10 +27,15 @@
     "TITLE": "مافیا"
   },
   "PLAYERS": {
+    "PLAYER_NAME": "نام بازیکن",
     "ADD_PLAYER": "اضافه کردن بازیکن"
   },
   "ASSIGN_ROLES": {
     "EQUAL_ROLES_ASSIGN_TO_PLAYERS": "مجموع تعداد نقش ها با تعداد بازیکنان باید برابر باشد."
+  },
+  "SHOW_ROLES": {
+    "TITLE": "نمایش نقش ها",
+    "YOUR_ROLE": "نقش شما"
   },
   "NIGHT_PHASE": {
     "SHOOTBYMAFIA": "پدر خوانده به یه شهروند شلیک کند.",
