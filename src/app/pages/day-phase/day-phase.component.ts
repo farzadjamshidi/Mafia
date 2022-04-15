@@ -1,9 +1,10 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { GetPlayersRequest } from 'src/app/core/models/get-players.model';
-import { Player, PlayerRole, PlayerRoleEnum, PlayerStatusEnum } from 'src/app/core/models/player.model';
+import { Player, PlayerRole, PlayerRoleEnum, PlayerRoleGroupEnum, PlayerStatusEnum } from 'src/app/core/models/player.model';
 import { IPlayerRepo } from 'src/app/core/repository/interfaces/player.interface';
 
 @Component({
@@ -28,6 +29,7 @@ export class DayPhaseComponent implements OnInit, OnDestroy
   sheriffAction: any;////////////
 
   constructor(
+    private translate: TranslateService,
     private router: Router,
     @Inject('IPlayerRepo') private playerRepo: IPlayerRepo
   )
@@ -55,6 +57,16 @@ export class DayPhaseComponent implements OnInit, OnDestroy
               count: 0
             };
           });
+
+          const numberOfMafias = this.voterPlayers.filter(p => p.role.roleGroup === PlayerRoleGroupEnum.Mafia).length;
+          if (numberOfMafias === 0)
+          {
+            alert(this.translate.instant("GENERAL.CITIZENS_WINS"));
+          }
+          if (numberOfMafias > this.voterPlayers.length - numberOfMafias)
+          {
+            alert(this.translate.instant("GENERAL.MAFIA_WINS"));
+          }
         },
         error: (err) =>
         {

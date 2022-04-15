@@ -1,5 +1,7 @@
 {
   "GENERAL": {
+    "MAFIA_WINS": "Mafia wins!",
+    "CITIZENS_WINS": "Citizens win!",
     "WAS_KILLED": "{{name}} was killed",
     "STAGE_COMPLETE": "This stage completed. All players open your their eyes.",
     "SELECT_NAME": "Please select your name",

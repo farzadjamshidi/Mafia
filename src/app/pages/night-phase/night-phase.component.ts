@@ -112,6 +112,16 @@ export class NightPhaseComponent implements OnInit, OnDestroy
           this.aliveAndNotSelectedPlayers = res.players.filter(p => p.status === PlayerStatusEnum.Alive);
           this.alivePlayers = res.players.filter(p => p.status === PlayerStatusEnum.Alive);
           this.players = res.players;
+
+          const numberOfMafias = this.alivePlayers.filter(p => p.role.roleGroup === PlayerRoleGroupEnum.Mafia).length;
+          if (numberOfMafias === 0)
+          {
+            alert(this.translate.instant("GENERAL.CITIZENS_WINS"));
+          }
+          if (numberOfMafias > this.alivePlayers.length - numberOfMafias)
+          {
+            alert(this.translate.instant("GENERAL.MAFIA_WINS"));
+          }
         },
         error: (err) =>
         {
