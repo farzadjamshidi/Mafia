@@ -4,6 +4,8 @@
     "STAGE_COMPLETE": "This stage completed. All players open your their eyes.",
     "SELECT_NAME": "Please select your name",
     "MY_ACTION_FINISHED": "My action finished",
+    "SAVE_CHANGES": "Save Changes",
+    "SUCCESS_MESSAGE": "Successfully Done.",
     "NEXT_STEP": "Next Step",
     "PREV_STEP": "Previous Step",
     "POSITIVE": "Positive",
@@ -55,6 +57,14 @@
     "ASKEDBYDETECTIVE": "Detective inquiry one person.",
     "KILLEDBYSNIPER": "Does sniper wants to shoot? if yes, shoot to a person.",
     "BODYGUARDCHOOSE": "Does bodyguard wants to inquiry?"
+  },
+  "MANUAL_CHANGE": {
+    "TITLE": "Manual Change",
+    "SELECT_ACTION": "Please select your action",
+    "ACTIONS": {
+      "MAKEALIVE": "Make Alive",
+      "KILLING": "Killing"
+    }
   },
   "HOME": {
     "TYPE_SELECTED": "Mafia Selected.",

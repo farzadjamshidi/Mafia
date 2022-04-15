@@ -43,6 +43,12 @@ export enum PlayerStatusEnum
   Dead
 }
 
+export enum ManualActionEnum
+{
+  MakeAlive = 1,
+  Killing
+}
+
 export class Godfather extends PlayerRole
 {
   override name = 'Godfather';

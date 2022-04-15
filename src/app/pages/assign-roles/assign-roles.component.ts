@@ -56,24 +56,6 @@ export class AssignRolesComponent implements OnInit, OnDestroy
 
   }
 
-  transformNumberedEnumToKeyValues(numberedEnum: { [key: string | number]: string | number; }): { name: string; value: number; }[]
-  {
-    const keyValueEnum: { name: string; value: number; }[] = [];
-
-    for (let item in numberedEnum)
-    {
-      if (isNaN(Number(item)))
-      {
-        keyValueEnum.push({
-          name: item,
-          value: Number(numberedEnum[item])
-        });
-      }
-    }
-
-    return keyValueEnum;
-  }
-
   changeRoleComboBox(): void
   {
     this.checkIsDeactiveNextStep();

@@ -2,6 +2,13 @@
   cursor: pointer;
 }
 
+.d-flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+
 @for $i from 1 to 50 {
   .width-#{$i * 5} {
     width: #{$i * 5}px;

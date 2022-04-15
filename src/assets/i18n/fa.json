@@ -4,6 +4,8 @@
     "STAGE_COMPLETE": "این مرحله به پایان رسید. همه بازیکنان چشم هاشون رو باز کنن.",
     "SELECT_NAME": "لطفا نام خود را انتخاب کنید",
     "MY_ACTION_FINISHED": "اکشن من انجام شد",
+    "SAVE_CHANGES": "اعمال تغییرات",
+    "SUCCESS_MESSAGE": "عملیات با موفقیت انجام شد",
     "NEXT_STEP": "مرحله بعد",
     "PREV_STEP": "مرحله قبل",
     "POSITIVE": "مثبت",
@@ -55,6 +57,14 @@
     "ASKEDBYDETECTIVE": "کاراگاه استعلام یه نفر رو بگیره.",
     "KILLEDBYSNIPER": "آیا تک تیرانداز میخواد شکلیک کنه؟ اگه آره، به یه نفر شلیک کنه.",
     "BODYGUARDCHOOSE": "زرهپوش میخواد استعلام بگیره؟"
+  },
+  "MANUAL_CHANGE": {
+    "TITLE": "تغییرات دستی",
+    "SELECT_ACTION": "لطفا اکشن را انتخاب کنید",
+    "ACTIONS": {
+      "MAKEALIVE": "زنده کردن",
+      "KILLING": "کشتن"
+    }
   },
   "HOME": {
     "TYPE_SELECTED": "بازی مافیا انتخاب شده است.",

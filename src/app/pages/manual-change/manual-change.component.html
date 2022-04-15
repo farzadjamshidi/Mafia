@@ -1,0 +1,40 @@
+<mat-card class="m-home-card">
+
+  <div class="m-home-card-content">
+    <span class="a-h3-text">{{"MANUAL_CHANGE.TITLE" | translate}}</span>
+
+
+    <div class="d-flex flex-column">
+      <span>
+        {{"GENERAL.SELECT_NAME" | translate}}:
+      </span>
+      <mat-form-field class="" appearance="outline" matRipple>
+        <mat-select [(ngModel)]="selectedPlayer">
+          <mat-option *ngFor="let player of players" [value]="player">
+            {{player.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <span>
+        {{"MANUAL_CHANGE.SELECT_ACTION" | translate}}:
+      </span>
+      <mat-form-field class="" appearance="outline" matRipple>
+        <mat-select [(ngModel)]="selectedAction">
+          <mat-option *ngFor="let action of manualActions" [value]="action">
+            {{"MANUAL_CHANGE.ACTIONS." + action.name.toUpperCase() | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="m-home-card-footer">
+    <div>
+      <button mat-raised-button color="primary" (click)="saveChanges()">
+        {{"GENERAL.SAVE_CHANGES" | translate}}
+      </button>
+    </div>
+  </div>
+
+</mat-card>
