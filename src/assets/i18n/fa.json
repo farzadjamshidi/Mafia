@@ -41,6 +41,7 @@
     "YOUR_ROLE": "نقش شما"
   },
   "NIGHT_PHASE": {
+    "TITLE": "مرحله شب",
     "NOTHING_HAPPENED": "شب گذشته اتفاقی نیافته است.",
     "BODYGUARD_NOT_INQUIRY": "زرهپوش استعلام نگرفته است.",
     "NO_BODY": "هیجکس",

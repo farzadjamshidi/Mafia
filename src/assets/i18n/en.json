@@ -41,6 +41,7 @@
     "YOUR_ROLE": "Your role is"
   },
   "NIGHT_PHASE": {
+    "TITLE": "Night Phase",
     "NOTHING_HAPPENED": "Nothing happened last night.",
     "BODYGUARD_NOT_INQUIRY": "bodyguard didn't inquiry last night.",
     "NO_BODY": "No Body",
