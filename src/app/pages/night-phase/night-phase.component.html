@@ -2,13 +2,13 @@
 
   <div class="m-home-card-content">
     <div *ngIf="!isDeactiveNextStep">
-      <div>
+      <div class="p-10">
         <span>
-          This stage completed. All players open your their eyes.
+          {{"GENERAL.STAGE_COMPLETE" | translate}}
         </span>
       </div>
       <hr>
-      <div>
+      <div class="p-10">
         <span>
           {{nightReport}}
         </span>
@@ -22,13 +22,13 @@
 
 
       <button mat-raised-button color="primary" (click)="showNightReport()" [disabled]="isDeactiveNextStep">
-        Night Report
+        {{"NIGHT_PHASE.NIGHT_REPORT" | translate}}
       </button>
     </div>
 
     <div *ngIf="isDeactiveNextStep">
       <span>
-        Please select your name:
+        {{"GENERAL.SELECT_NAME" | translate}}:
       </span>
       <mat-form-field class="" appearance="outline" matRipple>
         <mat-select [(ngModel)]="selectedPlayer" (selectionChange)="changePlayerComboBox($event)">
@@ -47,7 +47,7 @@
           *ngIf="happenings[selectedPlayer.role.value].type === nightHappeningTypeEnum.choosePlayer">
             <mat-select [(ngModel)]="happenings[selectedPlayer.role.value].playerId"
               (selectionChange)="changeActionPlayerComboBox($event)">
-              <mat-option [value]="">No Body</mat-option>
+              <mat-option [value]="">{{"NIGHT_PHASE.NO_BODY" | translate}}</mat-option>
               <mat-option *ngFor="let player of alivePlayers" [value]="player.id">
                 {{player.name}}
               </mat-option>
@@ -70,7 +70,9 @@
           </div>
         </div>
         <button mat-raised-button color="primary" (click)="actionFinished()">
-          My action finished
+          <span>
+            {{"GENERAL.MY_ACTION_FINISHED" | translate}}
+          </span>
         </button>
       </div>
     </div>

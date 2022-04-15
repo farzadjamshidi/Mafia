@@ -1,6 +1,7 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { GetPlayersRequest } from 'src/app/core/models/get-players.model';
 import { Bodyguard, Player, PlayerRole, PlayerRoleEnum, PlayerRoleGroupEnum, PlayerStatusEnum } from 'src/app/core/models/player.model';
@@ -89,6 +90,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
   };
 
   constructor(
+    private translate: TranslateService,
     private router: Router,
     @Inject('IPlayerRepo') private playerRepo: IPlayerRepo
   )
@@ -154,10 +156,10 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       const actionPlayer = this.players.find(p => p.id === event.value);
       if (actionPlayer?.role.roleGroup === PlayerRoleGroupEnum.Mafia && actionPlayer?.role.value !== PlayerRoleEnum.Godfather)
       {
-        this.actionReport = 'Positive';
+        this.actionReport = this.translate.instant("GENERAL.POSITIVE");
       } else
       {
-        this.actionReport = 'Negative';
+        this.actionReport = this.translate.instant("GENERAL.NEGATIVE");
       }
 
       setTimeout(() =>
@@ -188,7 +190,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       {
         if ((bodyguard.role as Bodyguard).lives < 2)
         {
-          nightReport += `${ bodyguard.name } was killed`;
+          nightReport += this.translate.instant("GENERAL.WAS_KILLED", { name: bodyguard.name });
           this.players.find(p => p.id === bodyguard.id)!.status = PlayerStatusEnum.Dead;
         }
         else
@@ -199,7 +201,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       else
       {
         const killedPlayer: Player = this.players.find(p => p.id === this.happenings[PlayerRoleEnum.Godfather].playerId)!;
-        nightReport += `${ killedPlayer.name } was killed`;
+        nightReport += this.translate.instant("GENERAL.WAS_KILLED", { name: killedPlayer.name });
         this.players.find(p => p.id === killedPlayer.id)!.status = PlayerStatusEnum.Dead;
       }
     }
@@ -221,7 +223,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
 
       if (killedPlayer.id)
       {
-        nightReport += `${ killedPlayer.name } was killed.`;
+        nightReport += this.translate.instant("GENERAL.WAS_KILLED", { name: killedPlayer.name });
         this.players.find(p => p.id === killedPlayer.id)!.status = PlayerStatusEnum.Dead;
       }
     }
@@ -232,13 +234,13 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       {
         if (player.status === PlayerStatusEnum.Dead)
         {
-          bodyguardInquiry += `${ player.role.name } was killed.`;
+          bodyguardInquiry += this.translate.instant("GENERAL.WAS_KILLED", { name: player.role.name });
         }
       });
     }
 
-    nightReport = nightReport ? nightReport : 'Nothing happened last night.';
-    bodyguardInquiry = bodyguardInquiry ? bodyguardInquiry : "bodyguard didn't inquiry last night.";
+    nightReport = nightReport ? nightReport : this.translate.instant("NIGHT_PHASE.NOTHING_HAPPENED");
+    bodyguardInquiry = bodyguardInquiry ? bodyguardInquiry : this.translate.instant("NIGHT_PHASE.BODYGUARD_NOT_INQUIRY");
     this.nightReport = nightReport;
     this.bodyguardInquiry = bodyguardInquiry;
   }

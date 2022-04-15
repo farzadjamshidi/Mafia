@@ -1,10 +1,13 @@
 {
   "GENERAL": {
+    "WAS_KILLED": "{{name}} was killed",
     "STAGE_COMPLETE": "This stage completed. All players open your their eyes.",
     "SELECT_NAME": "Please select your name",
     "MY_ACTION_FINISHED": "My action finished",
     "NEXT_STEP": "Next Step",
     "PREV_STEP": "Previous Step",
+    "POSITIVE": "Positive",
+    "NEGATIVE": "Negative",
     "YES": "Yes",
     "NO": "No"
   },
@@ -38,6 +41,13 @@
     "YOUR_ROLE": "Your role is"
   },
   "NIGHT_PHASE": {
+    "NOTHING_HAPPENED": "Nothing happened last night.",
+    "BODYGUARD_NOT_INQUIRY": "bodyguard didn't inquiry last night.",
+    "NO_BODY": "No Body",
+    "NIGHT_REPORT": "Night Report",
+    "SIMPLEMAFIA": "Nothing to do, please press My action finished button",
+    "SHERIFF": "Nothing to do, please press My action finished button",
+    "SIMPLECITIZEN": "Nothing to do, please press My action finished button",
     "SHOOTBYMAFIA": "Godfather shoot to a citizen.",
     "SAVEDBYMAFIA": "Mafia save one of their teammate.",
     "SAVEDBYDOCTOR": "Doctor open his/her eyes and save a person.",
