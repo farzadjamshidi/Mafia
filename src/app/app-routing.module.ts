@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/night-phase/night-phase.module').then(m => m.NightPhaseModule)
   },
   {
+    path: 'day-phase',
+    loadChildren: () => import('./pages/day-phase/day-phase.module').then(m => m.DayPhaseModule)
+  },
+  {
     path: 'manual-change',
     loadChildren: () => import('./pages/manual-change/manual-change.module').then(m => m.ManualChangeModule)
   },

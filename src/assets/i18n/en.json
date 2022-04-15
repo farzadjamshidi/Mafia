@@ -10,6 +10,7 @@
     "PREV_STEP": "Previous Step",
     "POSITIVE": "Positive",
     "NEGATIVE": "Negative",
+    "NO_BODY": "No Body",
     "YES": "Yes",
     "NO": "No"
   },
@@ -46,7 +47,6 @@
     "TITLE": "Night Phase",
     "NOTHING_HAPPENED": "Nothing happened last night.",
     "BODYGUARD_NOT_INQUIRY": "bodyguard didn't inquiry last night.",
-    "NO_BODY": "No Body",
     "NIGHT_REPORT": "Night Report",
     "SIMPLEMAFIA": "Nothing to do, please press My action finished button",
     "SHERIFF": "Nothing to do, please press My action finished button",
@@ -57,6 +57,15 @@
     "ASKEDBYDETECTIVE": "Detective inquiry one person.",
     "KILLEDBYSNIPER": "Does sniper wants to shoot? if yes, shoot to a person.",
     "BODYGUARDCHOOSE": "Does bodyguard wants to inquiry?"
+  },
+  "DAY_PHASE": {
+    "TITLE": "Day Phase (half day sleep)",
+    "SELECT_VOTING_NAMES": "Please select players to vote",
+    "VOTING": "Voting ...",
+    "MY_VOTE": "My vote is",
+    "SHERRIF_NOTHING_TO_DO": "Sheriff didn't do anything.",
+    "SHERRIF_CANCEL_VOTE": "Sheriff canceled vote.",
+    "SHERRIF_DIRECTLY_KILL": "Sheriff Directly kill"
   },
   "MANUAL_CHANGE": {
     "TITLE": "Manual Change",

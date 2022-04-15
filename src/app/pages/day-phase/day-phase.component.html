@@ -1,0 +1,109 @@
+<mat-card class="m-home-card">
+
+  <div class="m-home-card-content">
+    <span class="a-h3-text">{{"DAY_PHASE.TITLE" | translate}}</span>
+    <div *ngIf="!isDeactiveNextStep">
+      <div>
+        <span>
+          {{"GENERAL.STAGE_COMPLETE" | translate}}
+        </span>
+      </div>
+    </div>
+
+    <div *ngIf="isSelectPlayersForVoteStep" class="d-flex flex-column">
+      <span>
+        {{"DAY_PHASE.SELECT_VOTING_NAMES" | translate}}:
+      </span>
+
+      <mat-checkbox class="m-10" *ngFor="let votingPlayer of votingPlayers" [(ngModel)]="votingPlayer.isSelected">
+          {{votingPlayer.name}}
+      </mat-checkbox>
+
+      <div class="p-5 m-5">
+        <button mat-raised-button color="primary" (click)="selectPlayersForVoteFinished()">
+          <span>
+            {{"GENERAL.MY_ACTION_FINISHED" | translate}}
+          </span>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="isVotingStep" class="d-flex flex-column">
+      <span>
+        {{"DAY_PHASE.VOTING" | translate}}
+      </span>
+
+      <mat-form-field class="" appearance="outline" matRipple>
+        <mat-select [(ngModel)]="selectedPlayer">
+          <mat-option *ngFor="let voterPlayer of voterPlayers" [value]="voterPlayer">
+            {{voterPlayer.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="m-each-action p-5 m-5" *ngIf="selectedPlayer.role.value === playerRoleEnum.Sheriff">
+        <mat-radio-group [(ngModel)]="sheriffAction" class="d-flex flex-column">
+          <mat-radio-button [value]="" class="m-10">
+            {{"DAY_PHASE.SHERRIF_NOTHING_TO_DO" | translate}}
+          </mat-radio-button>
+          <mat-radio-button [value]="'cancel'" class="m-10">
+            {{"DAY_PHASE.SHERRIF_CANCEL_VOTE" | translate}}
+          </mat-radio-button>
+
+          {{"DAY_PHASE.SHERRIF_DIRECTLY_KILL" | translate}}:
+
+          <mat-radio-button *ngFor="let votingPlayer of votingPlayers" [value]="votingPlayer" class="m-10">
+            {{votingPlayer.name}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <mat-radio-group [(ngModel)]="selectedVotingPlayer" class="d-flex flex-column" *ngIf="selectedPlayer.id">
+        {{"DAY_PHASE.MY_VOTE" | translate}}:
+        <mat-radio-button [value]="" class="m-10">
+          {{"GENERAL.NO_BODY" | translate}}
+        </mat-radio-button>
+        <mat-radio-button *ngFor="let votingPlayer of votingPlayers" [value]="votingPlayer" class="m-10">
+          {{votingPlayer.name}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <button mat-raised-button color="primary" (click)="actionFinished()">
+        <span>
+          {{"GENERAL.MY_ACTION_FINISHED" | translate}}
+        </span>
+      </button>
+    </div>
+    <div *ngIf="isReportStep" class="d-flex flex-column p-20">
+      <div *ngFor="let votingPlayer of votingPlayers">
+        <span>
+          {{votingPlayer.name}} :
+        </span>
+        <span>
+          {{votingPlayer.count}}
+        </span>
+      </div>
+      <div class="p-10">
+        <span *ngIf="!sheriffAction">
+          {{"DAY_PHASE.SHERRIF_NOTHING_TO_DO" | translate}}
+        </span>
+        <span *ngIf="sheriffAction && sheriffAction === 'cancel'">
+          {{"DAY_PHASE.SHERRIF_CANCEL_VOTE" | translate}}
+        </span>
+        <span *ngIf="sheriffAction && sheriffAction.name">
+          {{"DAY_PHASE.SHERRIF_DIRECTLY_KILL" | translate}}: {{sheriffAction.name}}
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="m-home-card-footer">
+    <div>
+      <button mat-raised-button color="primary" (click)="saveAndGoToNext()" [disabled]="isDeactiveNextStep">
+        {{"GENERAL.NEXT_STEP" | translate}}
+      </button>
+    </div>
+  </div>
+
+</mat-card>

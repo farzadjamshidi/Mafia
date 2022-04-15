@@ -48,7 +48,7 @@
           *ngIf="happenings[selectedPlayer.role.value].type === nightHappeningTypeEnum.choosePlayer">
             <mat-select [(ngModel)]="happenings[selectedPlayer.role.value].playerId"
               (selectionChange)="changeActionPlayerComboBox($event)">
-              <mat-option [value]="">{{"NIGHT_PHASE.NO_BODY" | translate}}</mat-option>
+              <mat-option [value]="">{{"GENERAL.NO_BODY" | translate}}</mat-option>
               <mat-option *ngFor="let player of alivePlayers" [value]="player.id">
                 {{player.name}}
               </mat-option>
