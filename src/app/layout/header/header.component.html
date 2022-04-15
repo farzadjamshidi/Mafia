@@ -1,5 +1,10 @@
 <div class="m-header">
-  <mat-icon class="a-home-icon cursor-pointer" [routerLink]="['/home']">home</mat-icon>
+  <div class="m-left-icons">
+    <mat-icon class="a-icon cursor-pointer mr-20" [routerLink]="['/home']">home</mat-icon>
+    <mat-icon class="a-icon cursor-pointer mr-20" [routerLink]="['/manual-change']">back_hand</mat-icon>
+    <mat-icon class="a-icon cursor-pointer mr-20" [routerLink]="['/night-phase']">dark_mode</mat-icon>
+    <mat-icon class="a-icon cursor-pointer" [routerLink]="['/day-phase']">light_mode</mat-icon>
+  </div>
   <span class="a-header-text">{{"HEADER.TITLE" | translate}}</span>
   <mat-button-toggle-group class="m-select-language" [value]="defaultLanguage" (change)="changeLanguage($event)">
     <mat-button-toggle value="en">EN</mat-button-toggle>

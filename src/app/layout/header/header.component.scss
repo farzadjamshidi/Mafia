@@ -11,8 +11,13 @@
 .a-header-text {
   font-size: 22px;
 }
-.a-home-icon {
+// .a-home-icon {
+//   position: absolute;
+//   left: 16px;
+// }
+.m-left-icons {
   position: absolute;
+  display: flex;
   left: 16px;
 }
 .m-select-language {
