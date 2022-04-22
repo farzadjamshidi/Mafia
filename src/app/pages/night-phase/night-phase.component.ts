@@ -23,6 +23,8 @@ export class NightPhaseComponent implements OnInit, OnDestroy
   isDeactiveNextStep: boolean = true;
   selectedPlayer: Player = new Player();
   nightHappeningTypeEnum = NightHappeningTypeEnum;
+  playerRoleGroupEnum = PlayerRoleGroupEnum;
+  playerRoleEnum = PlayerRoleEnum;
   actionReport: string = '';
   nightReport: string = '';
   bodyguardInquiry: string = '';
@@ -118,7 +120,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
           {
             alert(this.translate.instant("GENERAL.CITIZENS_WINS"));
           }
-          if (numberOfMafias > this.alivePlayers.length - numberOfMafias)
+          if (numberOfMafias >= this.alivePlayers.length - numberOfMafias)
           {
             alert(this.translate.instant("GENERAL.MAFIA_WINS"));
           }
@@ -145,7 +147,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       this.playerRepo.saveAll(request).subscribe({
         next: () =>
         {
-          //this.router.navigate(['/day-phase']);
+          this.router.navigate(['/day-phase']);
         },
         error: () =>
         {
@@ -156,6 +158,11 @@ export class NightPhaseComponent implements OnInit, OnDestroy
 
   changePlayerComboBox(event: MatSelectChange): void
   {
+  }
+
+  changeKilledPlayerByMafiaComboBox(event: MatSelectChange): void
+  {
+    this.happenings[PlayerRoleEnum.Godfather].playerId = event.value;
   }
 
   changeActionPlayerComboBox(event: MatSelectChange): void
