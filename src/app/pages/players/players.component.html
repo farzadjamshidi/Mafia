@@ -1,6 +1,6 @@
-<mat-card class="m-home-card">
+<mat-card class="m-page-card">
 
-  <div class="m-home-card-content">
+  <div class="m-page-card-content">
     <div *ngFor="let player of players; let playerIndex=index" class="mv-20">
       <button mat-raised-button color="warn" (click)="deletePlayer(player)">
         {{"GENERAL.DELETE" | translate}}
@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <div class="m-home-card-footer d-flex align-items-center">
+  <div class="m-page-card-footer d-flex align-items-center">
     <button mat-raised-button color="primary" (click)="saveAndGoToNext()">
       {{"GENERAL.NEXT_STEP" | translate}}
     </button>

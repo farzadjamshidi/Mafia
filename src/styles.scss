@@ -32,12 +32,12 @@ body {
 html, body { height: 100%; }
 body { margin: 0; font-family: 'vazir', Roboto, "Helvetica Neue", sans-serif; }
 
-.m-home-card {
+.m-page-card {
   height: calc(100vh - 81px);
   margin: 16px;
 }
 
-.m-home-card-content {
+.m-page-card-content {
   height: calc(100vh - 161px);
   overflow-y: auto;
 }
@@ -47,7 +47,7 @@ body { margin: 0; font-family: 'vazir', Roboto, "Helvetica Neue", sans-serif; }
   padding: 0px;
 }
 
-.m-home-card-footer {
+.m-page-card-footer {
   height: 60px;
 }
 .a-text-primary {
