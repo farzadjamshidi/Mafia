@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "DELETE": "حذف",
     "MAFIA_WINS": "مافیاها برنده شدند",
     "CITIZENS_WINS": "شهروندان برنده شدند",
     "WAS_KILLED": "{{name}} کشته شد.",
@@ -47,7 +48,7 @@
   },
   "NIGHT_PHASE": {
     "TITLE": "مرحله شب",
-    "NOTHING_HAPPENED": "شب گذشته اتفاقی نیافته است.",
+    "NOTHING_HAPPENED": "شب گذشته اتفاقی نیوفتاده است.",
     "BODYGUARD_NOT_INQUIRY": "زرهپوش استعلام نگرفته است.",
     "NIGHT_REPORT": "گزارش شب",
     "SIMPLEMAFIA": "نیاز به انجام کاری نیست. لطفا دکمه اکشن من انجام شد را بزنید.",

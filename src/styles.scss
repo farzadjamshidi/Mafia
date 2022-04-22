@@ -31,3 +31,35 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'vazir', Roboto, "Helvetica Neue", sans-serif; }
+
+.m-page-card {
+  height: calc(100vh - 81px);
+  margin: 16px;
+}
+
+.m-page-card-content {
+  height: calc(100vh - 161px);
+  overflow-y: auto;
+}
+
+.a-simple-input.mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0px;
+  padding: 0px;
+}
+
+.m-page-card-footer {
+  height: 60px;
+}
+.a-text-primary {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.a-text-secondary {
+  font-size: 16px;
+}
+
+.a-h3-text {
+  font-size: 20px;
+  font-weight: 700;
+}

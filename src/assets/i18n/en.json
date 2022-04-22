@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "DELETE": "Delete",
     "MAFIA_WINS": "Mafia wins!",
     "CITIZENS_WINS": "Citizens win!",
     "WAS_KILLED": "{{name}} was killed",

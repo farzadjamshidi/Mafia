@@ -8,7 +8,15 @@
 .flex-column {
   flex-direction: column;
 }
-
+.flex-1 {
+  flex: 1;
+}
+.align-items-center {
+  align-items: center;
+}
+.justify-content-between{
+  justify-content: space-between;
+}
 @for $i from 1 to 50 {
   .width-#{$i * 5} {
     width: #{$i * 5}px;
@@ -38,5 +46,9 @@
 
   .mb-#{$i * 5} {
     margin-bottom: #{$i * 5}px;
+  }
+
+  .mt-#{$i * 5} {
+    margin-top: #{$i * 5}px;
   }
 }

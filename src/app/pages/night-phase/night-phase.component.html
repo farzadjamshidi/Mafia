@@ -1,6 +1,6 @@
-<mat-card class="m-home-card">
+<mat-card class="m-page-card">
 
-  <div class="m-home-card-content">
+  <div class="m-page-card-content">
     <span class="a-h3-text">{{"NIGHT_PHASE.TITLE" | translate}}</span>
     <div *ngIf="!isDeactiveNextStep">
       <div class="p-10">
@@ -15,7 +15,7 @@
         </span>
       </div>
       <hr>
-      <div>
+      <div class="p-10">
         <span>
           {{bodyguardInquiry}}
         </span>
@@ -55,6 +55,8 @@
             </mat-select>
           </mat-form-field>
 
+
+
           <mat-radio-group [(ngModel)]="happenings[selectedPlayer.role.value].choose"
             *ngIf="happenings[selectedPlayer.role.value].type === nightHappeningTypeEnum.yesOrNo">
             <mat-radio-button [value]="true">
@@ -76,18 +78,37 @@
           </span>
         </button>
       </div>
+      <div class="m-each-action p-5 m-5"
+        *ngIf="selectedPlayer.id &&
+          selectedPlayer.role.roleGroup === playerRoleGroupEnum.Mafia &&
+          selectedPlayer.role.value !== playerRoleEnum.Godfather">
+        <div class="m-each-action-title">
+          <span class="a-h3-text"><bdi>{{happenings[playerRoleEnum.Godfather].title | translate}}</bdi></span>
+        </div>
+        <div class="m-each-action-content">
+          <mat-form-field class="" appearance="outline" matRipple>
+            <mat-select [(ngModel)]="happenings[playerRoleEnum.Godfather].playerId"
+              (selectionChange)="changeKilledPlayerByMafiaComboBox($event)">
+              <mat-option [value]="">{{"GENERAL.NO_BODY" | translate}}</mat-option>
+              <mat-option *ngFor="let player of alivePlayers" [value]="player.id">
+                {{player.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="m-home-card-footer">
-    <div>
+  <div class="m-page-card-footer d-flex align-items-center">
+    <div  class="mr-20">
       <button mat-raised-button color="primary" (click)="goToPrevious()">
         {{"GENERAL.PREV_STEP" | translate}}
       </button>
-      <button mat-raised-button color="primary" (click)="saveAndGoToNext()" [disabled]="isDeactiveNextStep">
-        {{"GENERAL.NEXT_STEP" | translate}}
-      </button>
     </div>
+    <button mat-raised-button color="primary" (click)="saveAndGoToNext()" [disabled]="isDeactiveNextStep">
+      {{"GENERAL.NEXT_STEP" | translate}}
+    </button>
   </div>
 
 </mat-card>

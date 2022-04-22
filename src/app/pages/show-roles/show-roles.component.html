@@ -1,13 +1,11 @@
-<mat-card class="m-home-card">
+<mat-card class="m-page-card">
 
-  <div class="m-home-card-content">
+  <div class="m-page-card-content">
     <span class="a-h3-text">{{"SHOW_ROLES.TITLE" | translate}}</span>
-    <div *ngIf="!isDeactiveNextStep">
-      <div>
-        <span>
-          {{"GENERAL.STAGE_COMPLETE" | translate}}
-        </span>
-      </div>
+    <div *ngIf="!isDeactiveNextStep" class="m-20">
+      <span>
+        {{"GENERAL.STAGE_COMPLETE" | translate}}
+      </span>
     </div>
 
     <div *ngIf="isDeactiveNextStep">
@@ -22,9 +20,11 @@
         </mat-select>
       </mat-form-field>
 
-      <div class="m-each-action p-5 m-5" *ngIf="selectedPlayer.id">
-        <span>{{"SHOW_ROLES.YOUR_ROLE" | translate}}: </span>
-        <span>{{"ROLES."+selectedPlayer.role.name.toUpperCase() | translate}}</span>
+      <div class="m-each-action p-5 m-5 d-flex justify-content-between align-items-center" *ngIf="selectedPlayer.id">
+        <div>
+          <span>{{"SHOW_ROLES.YOUR_ROLE" | translate}}: </span>
+          <span>{{"ROLES."+selectedPlayer.role.name.toUpperCase() | translate}}</span>
+        </div>
         <button mat-raised-button color="primary" (click)="actionFinished()">
           <span>
             {{"GENERAL.MY_ACTION_FINISHED" | translate}}
@@ -34,15 +34,15 @@
     </div>
   </div>
 
-  <div class="m-home-card-footer">
-    <div>
+  <div class="m-page-card-footer d-flex align-items-center">
+    <div class="mr-20">
       <button mat-raised-button color="primary" (click)="goToPrevious()">
         {{"GENERAL.PREV_STEP" | translate}}
       </button>
-      <button mat-raised-button color="primary" (click)="saveAndGoToNext()" [disabled]="isDeactiveNextStep">
-        {{"GENERAL.NEXT_STEP" | translate}}
-      </button>
     </div>
+    <button mat-raised-button color="primary" (click)="saveAndGoToNext()" [disabled]="isDeactiveNextStep">
+      {{"GENERAL.NEXT_STEP" | translate}}
+    </button>
   </div>
 
 </mat-card>
