@@ -201,7 +201,8 @@ export class NightPhaseComponent implements OnInit, OnDestroy
 
     const bodyguard = this.players.find(p => p.role.value === PlayerRoleEnum.Bodyguard);
 
-    if (this.happenings[PlayerRoleEnum.Godfather].playerId !== this.happenings[PlayerRoleEnum.Doctor].playerId)
+    if (this.happenings[PlayerRoleEnum.Godfather].playerId &&
+      this.happenings[PlayerRoleEnum.Godfather].playerId !== this.happenings[PlayerRoleEnum.Doctor].playerId)
     {
       if (bodyguard && this.happenings[PlayerRoleEnum.Godfather].playerId === bodyguard.id)
       {
@@ -223,7 +224,6 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       }
     }
 
-    // if doctor save sniper???
     if (this.happenings[PlayerRoleEnum.Sniper].playerId)
     {
       let killedPlayer: Player = new Player();
