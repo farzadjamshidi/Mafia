@@ -3,7 +3,7 @@
   <div class="m-home-card-content">
     <span class="a-h3-text">{{"DAY_PHASE.TITLE" | translate}}</span>
     <div *ngIf="!isDeactiveNextStep">
-      <div>
+      <div class="mv-10">
         <span>
           {{"GENERAL.STAGE_COMPLETE" | translate}}
         </span>
@@ -11,9 +11,9 @@
     </div>
 
     <div *ngIf="isSelectPlayersForVoteStep" class="d-flex flex-column">
-      <span>
+      <div class="mv-10">
         {{"DAY_PHASE.SELECT_VOTING_NAMES" | translate}}:
-      </span>
+      </div>
 
       <mat-checkbox class="m-10" *ngFor="let votingPlayer of votingPlayers" [(ngModel)]="votingPlayer.isSelected">
           {{votingPlayer.name}}
@@ -28,9 +28,9 @@
       </div>
     </div>
     <div *ngIf="isVotingStep" class="d-flex flex-column">
-      <span>
+      <div class="mv-10">
         {{"DAY_PHASE.VOTING" | translate}}
-      </span>
+      </div>
 
       <mat-form-field class="" appearance="outline" matRipple>
         <mat-select [(ngModel)]="selectedPlayer">
@@ -49,7 +49,11 @@
             {{"DAY_PHASE.SHERRIF_CANCEL_VOTE" | translate}}
           </mat-radio-button>
 
-          {{"DAY_PHASE.SHERRIF_DIRECTLY_KILL" | translate}}:
+          <div class="mv-10">
+            <span>
+              {{"DAY_PHASE.SHERRIF_DIRECTLY_KILL" | translate}}:
+            </span>
+          </div>
 
           <mat-radio-button *ngFor="let votingPlayer of votingPlayers" [value]="votingPlayer" class="m-10">
             {{votingPlayer.name}}
@@ -96,14 +100,10 @@
     </div>
   </div>
 
-
-
-  <div class="m-home-card-footer">
-    <div>
-      <button mat-raised-button color="primary" (click)="saveAndGoToNext()" [disabled]="isDeactiveNextStep">
-        {{"GENERAL.NEXT_STEP" | translate}}
-      </button>
-    </div>
+  <div class="m-home-card-footer d-flex align-items-center">
+    <button mat-raised-button color="primary" (click)="saveAndGoToNext()" [disabled]="isDeactiveNextStep">
+      {{"GENERAL.NEXT_STEP" | translate}}
+    </button>
   </div>
 
 </mat-card>
