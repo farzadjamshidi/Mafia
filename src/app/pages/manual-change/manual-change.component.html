@@ -5,9 +5,9 @@
 
 
     <div class="d-flex flex-column">
-      <span>
+      <div class="mt-20">
         {{"GENERAL.SELECT_NAME" | translate}}:
-      </span>
+      </div>
       <mat-form-field class="" appearance="outline" matRipple>
         <mat-select [(ngModel)]="selectedPlayer">
           <mat-option *ngFor="let player of players" [value]="player">
@@ -29,12 +29,10 @@
     </div>
   </div>
 
-  <div class="m-home-card-footer">
-    <div>
-      <button mat-raised-button color="primary" (click)="saveChanges()">
-        {{"GENERAL.SAVE_CHANGES" | translate}}
-      </button>
-    </div>
+  <div class="m-home-card-footer d-flex align-items-center">
+    <button mat-raised-button color="primary" (click)="saveChanges()">
+      {{"GENERAL.SAVE_CHANGES" | translate}}
+    </button>
   </div>
 
 </mat-card>

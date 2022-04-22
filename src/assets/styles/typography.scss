@@ -47,4 +47,8 @@
   .mb-#{$i * 5} {
     margin-bottom: #{$i * 5}px;
   }
+
+  .mt-#{$i * 5} {
+    margin-top: #{$i * 5}px;
+  }
 }
