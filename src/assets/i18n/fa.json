@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "DELETE": "حذف",
     "MAFIA_WINS": "مافیاها برنده شدند",
     "CITIZENS_WINS": "شهروندان برنده شدند",
     "WAS_KILLED": "{{name}} کشته شد.",

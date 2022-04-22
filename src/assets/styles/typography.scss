@@ -8,6 +8,12 @@
 .flex-column {
   flex-direction: column;
 }
+.flex-1 {
+  flex: 1;
+}
+.align-items-center {
+  align-items: center;
+}
 
 @for $i from 1 to 50 {
   .width-#{$i * 5} {

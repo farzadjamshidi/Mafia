@@ -1,25 +1,28 @@
 <mat-card class="m-home-card">
 
   <div class="m-home-card-content">
-    <div *ngFor="let player of players; let playerIndex=index">
-      {{playerIndex+1}}- {{player.name}}
+    <div *ngFor="let player of players; let playerIndex=index" class="mv-20">
+      <button mat-raised-button color="warn" (click)="deletePlayer(player)">
+        {{"GENERAL.DELETE" | translate}}
+      </button>
+      <span>
+        {{playerIndex+1}}- {{player.name}}
+      </span>
     </div>
-  </div>
-
-  <div class="m-home-card-footer">
-    <div>
-      <mat-form-field appearance="outline">
+    <div class="d-flex">
+      <mat-form-field appearance="outline" class="a-simple-input mr-20">
         <input matInput #input placeholder="{{'PLAYERS.PLAYER_NAME' | translate}}">
       </mat-form-field>
-      <button mat-raised-button color="primary" (click)="addPlayer(input.value); input.value=''; input.focus()">
+      <button mat-raised-button class="flex-1" color="primary" (click)="addPlayer(input.value); input.value=''; input.focus()">
         {{"PLAYERS.ADD_PLAYER" | translate}}
       </button>
     </div>
-    <div>
-      <button mat-raised-button color="primary" (click)="saveAndGoToNext()">
-        {{"GENERAL.NEXT_STEP" | translate}}
-      </button>
-    </div>
+  </div>
+
+  <div class="m-home-card-footer d-flex align-items-center">
+    <button mat-raised-button color="primary" (click)="saveAndGoToNext()">
+      {{"GENERAL.NEXT_STEP" | translate}}
+    </button>
   </div>
 
 </mat-card>

@@ -56,6 +56,11 @@ export class PlayersComponent implements OnInit, OnDestroy
       ));
   }
 
+  deletePlayer(player: Player): void
+  {
+    this.players = this.players.filter(p => p.id !== player.id);
+  }
+
   ngOnDestroy(): void
   {
     this.subscriptions.unsubscribe();
