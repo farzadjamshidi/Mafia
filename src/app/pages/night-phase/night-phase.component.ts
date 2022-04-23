@@ -46,6 +46,11 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       type: NightHappeningTypeEnum.simple,
       title: 'NIGHT_PHASE.SIMPLEMAFIA'
     },
+    [PlayerRoleEnum.Joker]: {
+      name: 'jokerMafia',
+      type: NightHappeningTypeEnum.simple,
+      title: 'NIGHT_PHASE.SIMPLEMAFIA'
+    },
     [PlayerRoleEnum.Doctor]: {
       name: 'savedByDoctor',
       type: NightHappeningTypeEnum.choosePlayer,
@@ -88,6 +93,17 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       name: 'simpleCitizen',
       type: NightHappeningTypeEnum.simple,
       title: 'NIGHT_PHASE.SIMPLECITIZEN'
+    },
+    [PlayerRoleEnum.Angel]: {
+      name: 'simpleCitizen',
+      type: NightHappeningTypeEnum.simple,
+      title: 'NIGHT_PHASE.SIMPLECITIZEN'
+    },
+    [PlayerRoleEnum.Psychologist]: {
+      name: 'silencedByPsychologist',
+      type: NightHappeningTypeEnum.choosePlayer,
+      title: 'NIGHT_PHASE.SILENCEDBYPSYCHOLOGIST',
+      playerId: ''
     }
   };
 
@@ -254,6 +270,12 @@ export class NightPhaseComponent implements OnInit, OnDestroy
           bodyguardInquiry += this.translate.instant("GENERAL.WAS_KILLED", { name: player.role.name });
         }
       });
+    }
+
+    if (this.happenings[PlayerRoleEnum.Psychologist].playerId)
+    {
+      const silencedPlayer = this.players.find(p => p.id === this.happenings[PlayerRoleEnum.Psychologist].playerId)!;
+      nightReport += this.translate.instant("GENERAL.WAS_SILENCED", { name: silencedPlayer.name });
     }
 
     nightReport = nightReport ? nightReport : this.translate.instant("NIGHT_PHASE.NOTHING_HAPPENED");

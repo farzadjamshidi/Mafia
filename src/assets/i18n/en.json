@@ -3,7 +3,8 @@
     "DELETE": "Delete",
     "MAFIA_WINS": "Mafia wins!",
     "CITIZENS_WINS": "Citizens win!",
-    "WAS_KILLED": "{{name}} was killed",
+    "WAS_SILENCED": "{{name}} was silenced by psycologist.",
+    "WAS_KILLED": "{{name}} was killed.",
     "STAGE_COMPLETE": "This stage completed. All players open your their eyes.",
     "SELECT_NAME": "Please select your name",
     "MY_ACTION_FINISHED": "My action finished",
@@ -59,6 +60,7 @@
     "SAVEDBYDOCTOR": "Doctor open his/her eyes and save a person.",
     "ASKEDBYDETECTIVE": "Detective inquiry one person.",
     "KILLEDBYSNIPER": "Does sniper wants to shoot? if yes, shoot to a person.",
+    "SILENCEDBYPSYCHOLOGIST": "Does psycologist wants to silence? if yes, silence a person.",
     "BODYGUARDCHOOSE": "Does bodyguard wants to inquiry?"
   },
   "DAY_PHASE": {
