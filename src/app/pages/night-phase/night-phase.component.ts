@@ -278,7 +278,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       nightReports.push(this.translate.instant("GENERAL.WAS_SILENCED", { name: silencedPlayer.name }));
     }
 
-    nightReports = nightReports.length ? nightReports : this.translate.instant("NIGHT_PHASE.NOTHING_HAPPENED");
+    nightReports = nightReports.length ? nightReports : [this.translate.instant("NIGHT_PHASE.NOTHING_HAPPENED")];
     bodyguardInquiry = bodyguardInquiry ? bodyguardInquiry : this.translate.instant("NIGHT_PHASE.BODYGUARD_NOT_INQUIRY");
     this.nightReports = nightReports;
     this.bodyguardInquiry = bodyguardInquiry;
