@@ -9,10 +9,10 @@
         </span>
       </div>
       <hr>
-      <div class="p-10">
-        <span>
-          {{nightReport}}
-        </span>
+      <div class="p-10" *ngFor="let report of nightReports">
+        <bdi>
+          {{report}}
+        </bdi>
       </div>
       <hr>
       <div class="p-10">
@@ -20,8 +20,7 @@
           {{bodyguardInquiry}}
         </span>
       </div>
-
-
+      <hr>
       <button mat-raised-button color="primary" (click)="showNightReport()" [disabled]="isDeactiveNextStep">
         {{"NIGHT_PHASE.NIGHT_REPORT" | translate}}
       </button>

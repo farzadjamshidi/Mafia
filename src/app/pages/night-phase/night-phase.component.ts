@@ -26,7 +26,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
   playerRoleGroupEnum = PlayerRoleGroupEnum;
   playerRoleEnum = PlayerRoleEnum;
   actionReport: string = '';
-  nightReport: string = '';
+  nightReports: string[] = [];
   bodyguardInquiry: string = '';
   happenings: NightHappening = {
     [PlayerRoleEnum.Godfather]: {
@@ -43,6 +43,11 @@ export class NightPhaseComponent implements OnInit, OnDestroy
     },
     [PlayerRoleEnum.Mafia]: {
       name: 'simpleMafia',
+      type: NightHappeningTypeEnum.simple,
+      title: 'NIGHT_PHASE.SIMPLEMAFIA'
+    },
+    [PlayerRoleEnum.Joker]: {
+      name: 'jokerMafia',
       type: NightHappeningTypeEnum.simple,
       title: 'NIGHT_PHASE.SIMPLEMAFIA'
     },
@@ -88,6 +93,17 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       name: 'simpleCitizen',
       type: NightHappeningTypeEnum.simple,
       title: 'NIGHT_PHASE.SIMPLECITIZEN'
+    },
+    [PlayerRoleEnum.Angel]: {
+      name: 'simpleCitizen',
+      type: NightHappeningTypeEnum.simple,
+      title: 'NIGHT_PHASE.SIMPLECITIZEN'
+    },
+    [PlayerRoleEnum.Psychologist]: {
+      name: 'silencedByPsychologist',
+      type: NightHappeningTypeEnum.choosePlayer,
+      title: 'NIGHT_PHASE.SILENCEDBYPSYCHOLOGIST',
+      playerId: ''
     }
   };
 
@@ -196,7 +212,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
 
   showNightReport(): void
   {
-    let nightReport: string = '';
+    let nightReports: string[] = [];
     let bodyguardInquiry: string = '';
 
     const bodyguard = this.players.find(p => p.role.value === PlayerRoleEnum.Bodyguard);
@@ -208,7 +224,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       {
         if ((bodyguard.role as Bodyguard).lives < 2)
         {
-          nightReport += this.translate.instant("GENERAL.WAS_KILLED", { name: bodyguard.name });
+          nightReports.push(this.translate.instant("GENERAL.WAS_KILLED", { name: bodyguard.name }));
           this.players.find(p => p.id === bodyguard.id)!.status = PlayerStatusEnum.Dead;
         }
         else
@@ -219,7 +235,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       else
       {
         const killedPlayer: Player = this.players.find(p => p.id === this.happenings[PlayerRoleEnum.Godfather].playerId)!;
-        nightReport += this.translate.instant("GENERAL.WAS_KILLED", { name: killedPlayer.name });
+        nightReports.push(this.translate.instant("GENERAL.WAS_KILLED", { name: killedPlayer.name }));
         this.players.find(p => p.id === killedPlayer.id)!.status = PlayerStatusEnum.Dead;
       }
     }
@@ -240,7 +256,7 @@ export class NightPhaseComponent implements OnInit, OnDestroy
 
       if (killedPlayer.id)
       {
-        nightReport += this.translate.instant("GENERAL.WAS_KILLED", { name: killedPlayer.name });
+        nightReports.push(this.translate.instant("GENERAL.WAS_KILLED", { name: killedPlayer.name }));
         this.players.find(p => p.id === killedPlayer.id)!.status = PlayerStatusEnum.Dead;
       }
     }
@@ -256,9 +272,15 @@ export class NightPhaseComponent implements OnInit, OnDestroy
       });
     }
 
-    nightReport = nightReport ? nightReport : this.translate.instant("NIGHT_PHASE.NOTHING_HAPPENED");
+    if (this.happenings[PlayerRoleEnum.Psychologist].playerId)
+    {
+      const silencedPlayer = this.players.find(p => p.id === this.happenings[PlayerRoleEnum.Psychologist].playerId)!;
+      nightReports.push(this.translate.instant("GENERAL.WAS_SILENCED", { name: silencedPlayer.name }));
+    }
+
+    nightReports = nightReports.length ? nightReports : [this.translate.instant("NIGHT_PHASE.NOTHING_HAPPENED")];
     bodyguardInquiry = bodyguardInquiry ? bodyguardInquiry : this.translate.instant("NIGHT_PHASE.BODYGUARD_NOT_INQUIRY");
-    this.nightReport = nightReport;
+    this.nightReports = nightReports;
     this.bodyguardInquiry = bodyguardInquiry;
   }
 
