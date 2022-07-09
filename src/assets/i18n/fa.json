@@ -37,6 +37,8 @@
     "TITLE": "مافیا"
   },
   "PLAYERS": {
+    "DELETE_PLAYER_CONTENT": "آیا از حذف کردن بازیکن {{playerName}} مطمئن هستید؟",
+    "DELETE_PLAYER": "حذف کردن بازیکن",
     "PLAYER_NAME": "نام بازیکن",
     "ADD_PLAYER": "اضافه کردن بازیکن"
   },

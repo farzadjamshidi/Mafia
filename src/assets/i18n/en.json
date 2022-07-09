@@ -37,6 +37,8 @@
     "TITLE": "Mafia"
   },
   "PLAYERS": {
+    "DELETE_PLAYER_CONTENT": "Are you sure you want to delete {{playerName}}?",
+    "DELETE_PLAYER": "Delete Player",
     "PLAYER_NAME": "Player Name",
     "ADD_PLAYER": "Add Player"
   },
