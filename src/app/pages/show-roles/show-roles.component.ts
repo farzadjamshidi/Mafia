@@ -69,7 +69,7 @@ export class ShowRolesComponent implements OnInit, OnDestroy
 
     const data = new ConfirmationDialogDataModel({
       title: 'SHOW_ROLES.TITLE',
-      content: this.translate.instant('SHOW_ROLES.DIALOG_CONTENT', { playerName: event.value.name })
+      content: this.translate.instant('GENERAL.DIALOG_CONTENT', { playerName: event.value.name })
     });
 
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
