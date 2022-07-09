@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "DIALOG_CONTENT": "آیا انتخاب شما {{playerName}} است؟",
     "DELETE": "حذف",
     "MAFIA_WINS": "مافیاها برنده شدند",
     "CITIZENS_WINS": "شهروندان برنده شدند",
@@ -37,6 +38,8 @@
     "TITLE": "مافیا"
   },
   "PLAYERS": {
+    "DELETE_PLAYER_CONTENT": "آیا از حذف کردن بازیکن {{playerName}} مطمئن هستید؟",
+    "DELETE_PLAYER": "حذف کردن بازیکن",
     "PLAYER_NAME": "نام بازیکن",
     "ADD_PLAYER": "اضافه کردن بازیکن"
   },
@@ -44,6 +47,7 @@
     "EQUAL_ROLES_ASSIGN_TO_PLAYERS": "مجموع تعداد نقش ها با تعداد بازیکنان باید برابر باشد."
   },
   "SHOW_ROLES": {
+    "DIALOG_CONTENT": "آیا از نمایش نقش بازیکن {{playerName}} مطمئن هستید؟",
     "TITLE": "نمایش نقش ها",
     "YOUR_ROLE": "نقش شما"
   },

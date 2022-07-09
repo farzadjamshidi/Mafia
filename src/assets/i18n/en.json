@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "DIALOG_CONTENT": "Do you choose {{playerName}}?",
     "DELETE": "Delete",
     "MAFIA_WINS": "Mafia wins!",
     "CITIZENS_WINS": "Citizens win!",
@@ -37,6 +38,8 @@
     "TITLE": "Mafia"
   },
   "PLAYERS": {
+    "DELETE_PLAYER_CONTENT": "Are you sure you want to delete {{playerName}}?",
+    "DELETE_PLAYER": "Delete Player",
     "PLAYER_NAME": "Player Name",
     "ADD_PLAYER": "Add Player"
   },
@@ -44,6 +47,7 @@
     "EQUAL_ROLES_ASSIGN_TO_PLAYERS": "Sum of number of roles should be equal to number of players"
   },
   "SHOW_ROLES": {
+    "DIALOG_CONTENT": "Are you sure you want to show the role of {{playerName}}?",
     "TITLE": "Show Roles",
     "YOUR_ROLE": "Your role is"
   },
