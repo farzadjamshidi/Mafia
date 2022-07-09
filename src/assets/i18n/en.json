@@ -46,6 +46,7 @@
     "EQUAL_ROLES_ASSIGN_TO_PLAYERS": "Sum of number of roles should be equal to number of players"
   },
   "SHOW_ROLES": {
+    "DIALOG_CONTENT": "Are you sure you want to show the role of {{playerName}}?",
     "TITLE": "Show Roles",
     "YOUR_ROLE": "Your role is"
   },
