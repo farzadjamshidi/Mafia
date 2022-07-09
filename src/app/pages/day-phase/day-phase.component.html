@@ -33,14 +33,14 @@
       </div>
 
       <mat-form-field class="" appearance="outline" matRipple>
-        <mat-select [(ngModel)]="selectedPlayer">
+        <mat-select [(ngModel)]="selectedPlayer" (selectionChange)="changePlayerComboBox($event)">
           <mat-option *ngFor="let voterPlayer of voterPlayers" [value]="voterPlayer">
             {{voterPlayer.name}}
           </mat-option>
         </mat-select>
       </mat-form-field>
 
-      <div class="m-each-action p-5 m-5" *ngIf="selectedPlayer.role.value === playerRoleEnum.Sheriff">
+      <div class="m-each-action p-5 m-5" *ngIf="selectedPlayer?.role?.value === playerRoleEnum.Sheriff">
         <mat-radio-group [(ngModel)]="sheriffAction" class="d-flex flex-column">
           <mat-radio-button [value]="" class="m-10">
             {{"DAY_PHASE.SHERRIF_NOTHING_TO_DO" | translate}}

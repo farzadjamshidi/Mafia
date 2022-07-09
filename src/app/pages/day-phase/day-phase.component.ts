@@ -1,8 +1,11 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import { ConfirmationDialogComponent } from 'src/app/components/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogDataModel } from 'src/app/components/confirmation-dialog/confirmation-dialog.model';
 import { GetPlayersRequest } from 'src/app/core/models/get-players.model';
 import { Player, PlayerRole, PlayerRoleEnum, PlayerRoleGroupEnum, PlayerStatusEnum } from 'src/app/core/models/player.model';
 import { IPlayerRepo } from 'src/app/core/repository/interfaces/player.interface';
@@ -29,6 +32,7 @@ export class DayPhaseComponent implements OnInit, OnDestroy
   sheriffAction: any;////////////
 
   constructor(
+    public dialog: MatDialog,
     private translate: TranslateService,
     private router: Router,
     @Inject('IPlayerRepo') private playerRepo: IPlayerRepo
@@ -107,6 +111,25 @@ export class DayPhaseComponent implements OnInit, OnDestroy
 
   changePlayerComboBox(event: MatSelectChange): void
   {
+    this.selectedPlayer = new Player();
+
+    const data = new ConfirmationDialogDataModel({
+      title: 'NIGHT_PHASE.TITLE',
+      content: this.translate.instant('GENERAL.DIALOG_CONTENT', { playerName: event.value.name })
+    });
+
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '300px',
+      data
+    });
+
+    this.subscriptions.add(
+      dialogRef.afterClosed().subscribe((result: boolean) =>
+      {
+        if (result)
+          this.selectedPlayer = event.value;
+      })
+    );
   }
 
   ngOnDestroy(): void
