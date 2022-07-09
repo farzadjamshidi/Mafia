@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "DIALOG_CONTENT": "Do you choose {{playerName}}?",
     "DELETE": "Delete",
     "MAFIA_WINS": "Mafia wins!",
     "CITIZENS_WINS": "Citizens win!",

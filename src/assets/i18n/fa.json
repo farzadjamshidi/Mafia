@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "DIALOG_CONTENT": "آیا انتخاب شما {{playerName}} است؟",
     "DELETE": "حذف",
     "MAFIA_WINS": "مافیاها برنده شدند",
     "CITIZENS_WINS": "شهروندان برنده شدند",
